@@ -5,20 +5,20 @@
 class Pbdash < Formula
   desc "Read-only CLI viewer for PocketBase instances"
   homepage "https://github.com/jiseop121/pbdash"
-  version "0.7.1"
+  version "0.7.2"
   depends_on :macos
 
   if Hardware::CPU.intel?
-    url "https://github.com/jiseop121/pbdash/releases/download/v0.7.1/pbdash-v0.7.1-darwin-amd64.tar.gz"
-    sha256 "2cbc527ddb1d2da62188366c944f785087159d72bbecb924154773d42ed6ebb2"
+    url "https://github.com/jiseop121/pbdash/releases/download/v0.7.2/pbdash-v0.7.2-darwin-amd64.tar.gz"
+    sha256 "ee17621e0bc351d639c47223339e03dae110e28109f98c63cef848b1ab354622"
 
     define_method(:install) do
       bin.install "pbdash"
     end
   end
   if Hardware::CPU.arm?
-    url "https://github.com/jiseop121/pbdash/releases/download/v0.7.1/pbdash-v0.7.1-darwin-arm64.tar.gz"
-    sha256 "76eddc0b2911ff3b2311b5f80d4120234735b6084bab06b5de060d0ea4cc444a"
+    url "https://github.com/jiseop121/pbdash/releases/download/v0.7.2/pbdash-v0.7.2-darwin-arm64.tar.gz"
+    sha256 "ffdf9dac6ea4f1728a9bb41f491661210f684e53a69f3f555ee793d3a28a77fc"
 
     define_method(:install) do
       bin.install "pbdash"
