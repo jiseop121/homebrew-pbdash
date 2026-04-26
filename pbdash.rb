@@ -5,23 +5,41 @@
 class Pbdash < Formula
   desc "Read-only CLI viewer for PocketBase instances"
   homepage "https://github.com/jiseop121/pbdash"
-  version "0.7.3"
-  depends_on :macos
+  version "0.7.4"
 
-  if Hardware::CPU.intel?
-    url "https://github.com/jiseop121/pbdash/releases/download/v0.7.3/pbdash-v0.7.3-darwin-amd64.tar.gz"
-    sha256 "8a340dcec3e2541cc14924c8d7a5dc89d1041324363c998319086ef7d09551ae"
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/jiseop121/pbdash/releases/download/v0.7.4/pbdash-v0.7.4-darwin-amd64.tar.gz"
+      sha256 "9a254e9f6ea2299d49ac78de039c30d99a8ce4cc9cc282f7e460cab6763406b0"
 
-    define_method(:install) do
-      bin.install "pbdash"
+      define_method(:install) do
+        bin.install "pbdash"
+      end
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/jiseop121/pbdash/releases/download/v0.7.4/pbdash-v0.7.4-darwin-arm64.tar.gz"
+      sha256 "870c27d2afd2860b81b3e6391d44007a99a7e8d5d958fcd00455ca0ef53b0d1b"
+
+      define_method(:install) do
+        bin.install "pbdash"
+      end
     end
   end
-  if Hardware::CPU.arm?
-    url "https://github.com/jiseop121/pbdash/releases/download/v0.7.3/pbdash-v0.7.3-darwin-arm64.tar.gz"
-    sha256 "6a614afb16f9595f8cb98c132056e05db3260d9f9eb9c3a23d02ecb96f0f5167"
 
-    define_method(:install) do
-      bin.install "pbdash"
+  on_linux do
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url "https://github.com/jiseop121/pbdash/releases/download/v0.7.4/pbdash-v0.7.4-linux-amd64.tar.gz"
+      sha256 "33248d14732295ed1f183b8eb52adf257c6d7de05fad0592ea3ae8ce43adfdce"
+      define_method(:install) do
+        bin.install "pbdash"
+      end
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/jiseop121/pbdash/releases/download/v0.7.4/pbdash-v0.7.4-linux-arm64.tar.gz"
+      sha256 "21ed34a4508f5382eedea72a58b3862d08e895dd926753c243cd4a69d990e1a1"
+      define_method(:install) do
+        bin.install "pbdash"
+      end
     end
   end
 
